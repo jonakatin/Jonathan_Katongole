@@ -29,7 +29,7 @@ sales['Order Date'] = pd.to_datetime(sales['Order Date'], errors='coerce', dayfi
 sales.drop_duplicates(inplace=True)
 
 # Remove rows with missing Customer Name, Product, or crucial fields
-sales = sales.dropna(subset=['Customer Name', 'Product', 'Quantity', 'Unit Price'])
+sales.dropna(subset=['Customer Name', 'Quantity', 'Unit Price', 'Total Revenue'], inplace=True)
 
 # Drop rows with negative quantities or revenues
 sales = sales[(sales['Quantity'] > 0) & (sales['Total Revenue'] >= 0)]
