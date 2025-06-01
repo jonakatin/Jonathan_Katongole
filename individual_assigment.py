@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+
 
 # Load the data
 data = pd.read_csv("data.csv")
@@ -59,3 +61,23 @@ sales.to_csv("cleaned_sales.csv", index=False)
 mine.to_csv("cleaned_mine.csv", index=False)
 
 print("All datasets cleaned and saved.")
+
+
+# Plot histogram for Maxpulse
+plt.figure(figsize=(10, 5))
+mine['Maxpulse'].dropna().astype(float).hist(bins=20, color='skyblue', edgecolor='black')
+plt.title('Histogram of Maxpulse')
+plt.xlabel('Maxpulse')
+plt.ylabel('Frequency')
+plt.grid(False)
+plt.show()
+
+# Plot histogram for Calories
+plt.figure(figsize=(10, 5))
+mine['Calories'].dropna().astype(float).hist(bins=20, color='salmon', edgecolor='black')
+plt.title('Histogram of Calories')
+plt.xlabel('Calories')
+plt.ylabel('Frequency')
+plt.grid(False)
+plt.show()
+
